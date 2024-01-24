@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kaushan+Script&display=swap");
+
+/* @import "PATH_TO_TAILWIND_CSS_FILES"; */
+@import "Example/Index.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    body {
+        font-family: "Inter", sans-serif;
+    }
+
+}
+
+@layer components {
+    /* None components. */
+}

@@ -1,0 +1,24 @@
+{
+    "name": "belicfr/mvc-lite",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MvcLite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jonathan",
+            "email": "96206878+belicfr@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*",
+        "symfony/string": "^7.0",
+        "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "saggre/phpdocumentor-markdown": "^0.1.4"
+    }
+}
