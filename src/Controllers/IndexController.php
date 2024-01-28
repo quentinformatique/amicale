@@ -18,14 +18,12 @@ class IndexController extends Engine\Controller
 
     public function render(): void
     {
-        Storage::include("Css/ready.css");
-        Storage::include("Css/css/style.css");
-        Storage::include("Css/css/form.css");
-        Storage::include("Css/css/footer.css");
+        Storage::include("Style/css/main.css", "css");
+        Storage::include("Style/css/form.css", "css");
 
-        // add js
-        Storage::include("js/footer.js", );
-        View::render("Index");
+        // Storage::include("js/footer.js", "js", "defer");
+
+        View::render("index");
     }
 
 }
