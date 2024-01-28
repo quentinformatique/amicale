@@ -18,7 +18,6 @@ class IndexController extends Engine\Controller
 
     public function render(): void
     {
-        // to import css, le chemin par de Ressources
         Storage::include("Css/ready.css");
         View::render("Index");
     }
