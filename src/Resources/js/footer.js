@@ -1,15 +1,15 @@
 function changeFooterPosition() {
-    const FOOTER = document.querySelector("footer"),
-        BODY = document.querySelector("body");
+    const FOOTER = $("footer"),
+        BODY = $("body");
 
-    if (window.innerHeight > BODY.getBoundingClientRect().height) {
-        FOOTER.style.position = "absolute";
-        FOOTER.style.bottom = 0;
+    if ($(window).height() > BODY.height()) {
+        FOOTER.css("position", "absolute");
+        FOOTER.css("bottom", 0);
     } else {
-        FOOTER.style.position = "";
-        FOOTER.style.bottom = "";
+        FOOTER.css("position", "");
+        FOOTER.css("bottom", "");
     }
 }
 
-window.addEventListener("resize", changeFooterPosition);
+$(window).resize(changeFooterPosition);
 changeFooterPosition();
