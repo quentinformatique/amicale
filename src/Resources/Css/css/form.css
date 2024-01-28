@@ -1,0 +1,130 @@
+form {
+    max-width: 80%;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.annonce-form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 150px;
+}
+
+.submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="file"] {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    width: 100%;
+}
+
+/* Affichage horizontal pour les grands écrans */
+@media only screen and (min-width: 900px) {
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .form-group {
+        width: 48%;
+    }
+
+    /* Pour centrer le bouton d'envoi */
+    button[type="submit"] {
+        margin: 20px auto;
+    }
+}
+
+.checkboxList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.checkbox {
+    /* affichage en ligne */
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    width: 28%;
+    margin-bottom: 10px;
+}
+.checkbox > label {
+    margin-bottom: 0;
+}
+
+.checkbox-data {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.label-data {
+    font-size: 14px;
+    color: grey;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Publier</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
+    <script src="/src/js/script.js" defer></script>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="left">
+        <div class="logo">
+            <img src="../img/logo.jpg" class="logo" alt="logo">
+        </div>
+        <div class="title">
+            <h1>Amical'Troc</h1>
+        </div>
+    </div>
+    <div class="menu">
+        <a href="../../index.html">Accueil</a>
+        <a href="Vente.html">Vente</a>
+        <a href="Troc.html">Troc</a>
+        <a href="Location.html">Location</a>
+    </div>
+    <a class="publish-button" href="../../index.html">
+        <i class="fa-solid fa-ban"></i>
+        <span>Annuler l'annonce</span>
+    </a>
+
+</div>
+
+<div class="container">
+    <form class="annonce-form">
+        <div class="form-group">
+            <label for="photos">Photos (max 3)</label>
+            <input type="file" name="photos[]" id="photos" multiple>
+        </div>
+        <div class="form-group">
+            <label for="checkboxType">Quel type d'annonce ?</label>
+            <br>
+            <div class="checkboxList" id="checkboxType">
+                <div class="checkbox">
+                    <input type="checkbox" id="vente" name="vente">
+                    <label for="vente">Vente</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="troc" name="troc">
+                    <label for="troc">Troc</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="location" name="location">
+                    <label for="location">Location</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="titre">Titre de l'annonce</label>
+            <input type="text" id="titre" name="titre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="prix">Prix</label>
+            <input type="number" id="prix" name="prix" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="code_agent">Code agent</label>
+            <input type="text" id="code_agent" name="code_agent" required>
+        </div>
+        <div class="form-group">
+            <label for="telephone">Numéro de téléphone</label>
+            <input type="tel" id="telephone" name="telephone" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <!-- checkbox afin d'accepter l'utilisation de ses données-->
+        <div class="form-group checkbox-data">
+            <input type="checkbox" id="accept" name="accept" required>
+            <label class="label-data" for="accept">J'accepte que mes données soient utilisées pour la création de
+                l'annonce</label>
+        </div>
+        <button class="submit" type="submit">Créer l'annonce</button>
+    </form>
+
+</div>
+
+
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <div class="left">
+            <div class="logo">
+                <img src="../img/logo.jpg" class="logo" alt="logo">
+            </div>
+            <div class="title">
+                <h1>Amical'Troc</h1>
+            </div>
+        </div>
+        <p class="footer-links">
+            <a href="#" class="link-1">Home</a>
+
+            <a href="#">Blog</a>
+
+            <a href="#">Pricing</a>
+
+            <a href="#">About</a>
+
+            <a href="#">Faq</a>
+
+            <a href="#">Contact</a>
+        </p>
+        <p class="footer-company-name">Amical'Troc © 2023</p>
+    </div>
+    <div class="footer-center">
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>AVENUE DE L' HÔPITAL</span> 12027 RODEZ CEDEX 9</p>
+        </div>
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>05 65 55 12 12</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div>
+    </div>
+    <div class="footer-right">
+        <p class="footer-company-about">
+            <span>Amical'Troc</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
+            vehicula sit amet.
+        </p>
+        <div class="footer-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

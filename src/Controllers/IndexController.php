@@ -20,6 +20,12 @@ class IndexController extends Engine\Controller
     {
         // to import css, le chemin par de Ressources
         Storage::include("Css/ready.css");
+        Storage::include("Css/css/style.css");
+        Storage::include("Css/css/form.css");
+        Storage::include("Css/css/footer.css");
+
+        // add js
+        Storage::include("js/footer.js", );
         View::render("Index");
     }
 
