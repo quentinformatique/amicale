@@ -17,6 +17,6 @@ class SellController extends Engine\Controller
 
     public function render(): void
     {
-        View::render("sell");
+        View::render("Sell");
     }
 }

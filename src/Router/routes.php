@@ -16,7 +16,7 @@ use MvcLite\Router\Engine\Router;
 
 
 Router::get("/", IndexController::class, "render")->setName("index");
-Router::get("/Publish", PublishController::class, "render")->setName("publish");
-Router::get("/Location", LocationController::class, "render")->setName("location");
-Router::get("/Barter", BarterController::class, "render")->setName("barter");
-Router::get("/Sell", SellController::class, "render")->setName("sell");
+Router::get("/publish", PublishController::class, "render")->setName("publish");
+Router::get("/location", LocationController::class, "render")->setName("location");
+Router::get("/barter", BarterController::class, "render")->setName("barter");
+Router::get("/sell", SellController::class, "render")->setName("sell");
