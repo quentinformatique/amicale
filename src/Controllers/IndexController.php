@@ -18,10 +18,13 @@ class IndexController extends Engine\Controller
 
     public function render(): void
     {
-        Storage::include("Style/css/main.css", "css");
-        Storage::include("Style/css/form.css", "css");
+        Storage::include("Style/css/main.css");
+        Storage::include("Style/css/form.css");
+        Storage::include("Style/css/footer.css");
 
-        // Storage::include("js/footer.js", "js", "defer");
+        // jquery
+        // Storage::include("../../node_modules/jquery/dist/jquery.min.js", importMethod: "defer");
+
 
         View::render("index");
     }

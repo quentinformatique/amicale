@@ -17,7 +17,7 @@ class LocationController extends Engine\Controller
 
     public function render(): void
     {
-        View::render("location");
+        View::render("Location");
     }
 
 }

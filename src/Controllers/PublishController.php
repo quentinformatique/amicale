@@ -17,7 +17,7 @@ class PublishController extends Engine\Controller
 
     public function render(): void
     {
-        View::render("publish");
+        View::render("Publish");
     }
 
 }

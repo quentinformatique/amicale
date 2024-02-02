@@ -17,7 +17,7 @@ class BarterController extends Engine\Controller
 
     public function render(): void
     {
-        View::render("barter");
+        View::render("Barter");
     }
 
 }
