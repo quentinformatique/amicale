@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Accueil</title>
+
+  {{ resource('Style/css/main.css') }}
+  {{ resource('Style/css/footer.css') }}
+
   <!-- cdn fontawesome -->
   <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
-   <!-- cdn jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
 
 <div class="navbar">
@@ -32,11 +34,11 @@
 <div class="container">
   <h1>Quel type d'annonces cherchez vous :</h1>
   <div class="options">
-    <a href="/sell" class="option">Vente</a>
-    <a href="/barter" class="option">Troc</a>
-    <a href="/location" class="option">Location</a>
+    <a href="{{ route("sell") }}" class="option">Vente</a>
+    <a href="{{ route("barter") }}" class="option">Troc</a>
+    <a href="{{ route("location") }}" class="option">Location</a>
   </div>
 </div>
-{% include "Components/footer.html" %}
+{% include "Components/footer.twig" %}
 </body>
 </html>
