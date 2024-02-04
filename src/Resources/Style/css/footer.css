@@ -110,7 +110,8 @@ footer {
   background-color: white;
   color: black;
   padding: 10px;
-  text-align: center; }
+  text-align: center;
+  padding: 30px; }
   footer .content {
     display: flex;
     flex-direction: column;
@@ -122,6 +123,9 @@ footer {
         height: 8vh; }
       footer .content .first-row .left .title {
         color: #007bff; }
-      footer .content .first-row .right hr {
-        border: 1px solid #007bff;
-        border-radius: 5px; }
+      footer .content .first-row .right {
+        margin: 20px; }
+        footer .content .first-row .right hr {
+          margin: 20px;
+          border: 1px solid #007bff;
+          border-radius: 5px; }
