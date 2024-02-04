@@ -109,7 +109,6 @@ a {
 footer {
   background-color: white;
   color: black;
-  padding: 10px;
   text-align: center;
   padding: 30px; }
   footer .content {
@@ -129,3 +128,17 @@ footer {
           margin: 20px;
           border: 1px solid #007bff;
           border-radius: 5px; }
+
+@media (max-width: 800px) {
+  footer .content .first-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    footer .content .first-row .left .logo {
+      height: 8vh; }
+    footer .content .first-row .right {
+      margin: 20px; }
+      footer .content .first-row .right hr {
+        margin: 20px;
+        border: 1px solid #007bff;
+        border-radius: 5px; } }

@@ -1,33 +1,52 @@
 @import 'main'
 
 footer
-    background-color: white
-    color: black
-    padding: 10px
-    text-align: center
+  background-color: white
+  color: black
+  text-align: center
+  padding: 30px
 
-    padding: 30px
+  .content
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
 
+    .first-row
+      display: flex
+
+      .left
+        .logo
+          height: 8vh
+
+        .title
+          color: $color-blue
+
+      .right
+        margin: 20px
+
+        hr
+          margin: 20px
+          border: 1px solid $color-blue
+          border-radius: 5px
+
+
+@media (max-width: 800px)
+  footer
     .content
-        display: flex
+      .first-row
         flex-direction: column
         align-items: center
         justify-content: center
 
-        .first-row
-            display: flex
+        .left
+          .logo
+            height: 8vh
 
-            .left
-                .logo
-                    height: 8vh
+        .right
+          margin: 20px
 
-                .title
-                    color: $color-blue
-
-            .right
-                margin: 20px
-                hr
-                    margin: 20px
-                    border: 1px solid $color-blue
-                    border-radius: 5px
-
+          hr
+            margin: 20px
+            border: 1px solid $color-blue
+            border-radius: 5px
