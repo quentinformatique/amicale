@@ -3,35 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Publier</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/form.css">
+    {{ resource('Style/css/main.css') }}
+    {{ resource('Style/css/footer.css') }}
     <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
-    <script src="/src/js/script.js" defer></script>
 </head>
 <body>
 
-<div class="navbar">
-    <div class="left">
-        <div class="logo">
-            <img src="../img/logo.jpg" class="logo" alt="logo">
-        </div>
-        <div class="title">
-            <h1>Amical'Troc</h1>
-        </div>
-    </div>
-    <div class="menu">
-        <a href="../../index.html">Accueil</a>
-        <a href="Vente.html">Vente</a>
-        <a href="Troc.html">Troc</a>
-        <a href="Location.html">Location</a>
-    </div>
-    <a class="publish-button" href="../../index.html">
-        <i class="fa-solid fa-ban"></i>
-        <span>Annuler l'annonce</span>
-    </a>
-
-</div>
+{% include "Components/Navbar.twig" %}
 
 <div class="container">
     <form class="annonce-form">
@@ -92,5 +70,6 @@
     </form>
 
 </div>
+{% include "Components/footer.twig" %}
 </body>
 </html>

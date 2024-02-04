@@ -3,40 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Vente</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/annonce.css">
+    {{ resource('Style/css/main.css') }}
+    {{ resource('Style/css/footer.css') }}
+    {{ resource('Style/css/annonce.css') }}
     <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
-    <script src="../js/script.js" defer></script>
 </head>
 <body>
 
-<div class="navbar">
-    <div class="left">
-        <div class="logo">
-            <img src="../img/logo.jpg" class="logo" alt="logo">
-        </div>
-        <div class="title">
-            <h1>Amical'Troc</h1>
-        </div>
-    </div>
-    <div class="menu">
-        <a href="../../index.html">Accueil</a>
-        <a href="#" class="current">Vente</a>
-        <a href="Troc.html">Troc</a>
-        <a href="Location.html">Location</a>
-    </div>
-    <div class="search-navbar">
-        <input type="text" name="navbar-search" id="navbar-search" placeholder="Rechercher">
-        <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
-
-</div>
+{% include "Components/Navbar.twig" %}
 
 <div class="container">
     <div class="annonce">
         <div class="annonce-image">
-            <img src="../img/voiture.jpg" alt="Annonce 1">
+            <img src="{{ media("databaseImages/voiture.jpg") }}" alt="Annonce 1">
         </div>
         <div class="annonce-info">
             <div class="annonce-header">
@@ -60,5 +39,6 @@
         </div>
     </div>
 </div>
+{% include "Components/footer.twig" %}
 </body>
 </html>
