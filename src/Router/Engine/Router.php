@@ -112,16 +112,6 @@ class Router
         }
 
         call_user_func([$controllerInstance, $route->getMethod()], $request);
-
-        Delivery::get()
-            ->incrementRoutingIterationCount()
-            ->save();
-
-        if (Delivery::get()->mustBeDestroyed())
-        {
-            (new Delivery())
-                ->save();
-        }
     }
 
     /**

@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /website/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !src/resources/(.*)$
+
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]
