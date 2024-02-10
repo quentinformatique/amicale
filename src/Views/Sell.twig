@@ -5,39 +5,15 @@
     <title>Vente</title>
     {{ resource('Style/css/main.css') }}
     {{ resource('Style/css/footer.css') }}
-    {{ resource('Style/css/annonce.css') }}
+    {{ resource('Style/css/offer.css') }}
     <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-{% include "Components/Navbar.twig" %}
+{% include "Components/navbar.twig" %}
 
 <div class="container">
-    <div class="annonce">
-        <div class="annonce-image">
-            <img src="{{ media("databaseImages/voiture.jpg") }}" alt="Annonce 1">
-        </div>
-        <div class="annonce-info">
-            <div class="annonce-header">
-                <h2>Annonce 1</h2>
-                <div class="annonce-prix">
-                    <span class="prix-label">Prix :</span>
-                    <span class="prix-valeur">5000 €</span>
-                </div>
-                <div>
-                    <button class="btn-delete">supprimer l'annonce <i class="fa-solid fa-xmark"></i></button>
-                </div>
-            </div>
-            <div class="annonce-details">
-                <p><strong>Marque :</strong> Exemple </p>
-                <p><strong>mise en vente le :</strong> 11/05/2023</p>
-                <p><strong>Mail de contact :</strong> exemple@mail.fr</p>
-                <p><strong>numero de contact : </strong> 0780743349</p>
-            </div>
-            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid assumenda cupiditate dolore est explicabo fuga iure maiores nostrum placeat, quo veniam veritatis voluptates? Alias consectetur eveniet odio quisquam quo?</span><span>Assumenda blanditiis debitis dignissimos eos et, ex exercitationem impedit ipsa modi necessitatibus, nobis quisquam repellendus, rerum sapiente vel. Beatae cumque dolor ipsam similique vel! Consectetur corporis culpa dolorum iusto odit!</span></p>
-
-        </div>
-    </div>
+    {% include "Components/offer.twig" with {'title': "titre de l'annonce", 'price': "54,32", 'imagePath': "databaseImages/voiture.jpg", 'date': "16/12/2004"}  %}
 </div>
 {% include "Components/footer.twig" %}
 </body>
