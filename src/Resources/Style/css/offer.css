@@ -145,8 +145,11 @@ a {
             color: #007bff;
             scale: 1.1; }
   .offer .second-row {
-    margin: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center; }
+    .offer .second-row hr {
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      width: 100%; }
