@@ -20,6 +20,20 @@
     <a href="{{ route("barter") }}" class="option">Troc</a>
     <a href="{{ route("location") }}" class="option">Location</a>
   </div>
+  <div class="last-offers">
+    <hr/>
+    <h2>Dernières annonces</h2>
+    <div class="offers">
+      {% for offer in offers %}
+        <div class="offer">
+          <img src="{{ offer.image }}" alt="image">
+          <h3>{{ offer.title }}</h3>
+          <p>{{ offer.description }}</p>
+          <a href="{{ route("offer", {"id": offer.id}) }}" class="btn">Voir l'annonce</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 {% include "Components/footer.twig" %}
 </body>
