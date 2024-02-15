@@ -19,6 +19,8 @@ class IndexController extends Engine\Controller
     public function render(): void
     {
         View::render("index");
+        // we pass the offers to the view
+
     }
 
 }
