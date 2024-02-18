@@ -20,12 +20,12 @@ class SellController extends Engine\Controller
     public function render(): void
     {
         View::render("Sell", [
-            "offers" => $this->getOffers()
+            "offers" => $this->getVerifiedSalesOffers()
         ]);
     }
 
-    private function getOffers()
+    private function getVerifiedSalesOffers(): ?array
     {
-        return Offer::getOffers();
+        return Offer::getVerifiedOffersByCategory("sales");
     }
 }

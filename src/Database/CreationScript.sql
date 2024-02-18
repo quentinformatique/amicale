@@ -33,7 +33,7 @@ CREATE TABLE `annonces` (
                             `prix` float NOT NULL,
                             `description` text NOT NULL,
                             `titre` varchar(350) DEFAULT NULL,
-                            `valide` tinyint(1) NOT NULL DEFAULT 0,
+                            `valid` tinyint(1) NOT NULL DEFAULT 0,
                             `type` int(11) NOT NULL,
                             `image` text NOT NULL,
                             `date` date DEFAULT NULL
