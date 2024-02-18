@@ -6,12 +6,13 @@
 
   {{ resource('Style/css/main.css') }}
   {{ resource('Style/css/footer.css') }}
+  {{ resource('Style/css/offer.css') }}
 
   <!-- cdn fontawesome -->
   <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
 <body>
 
-{% include "Components/Navbar.twig" %} 
+{% include "Components/Navbar.twig" %}
 
 <div class="container">
   <h1>Quel type d'annonces cherchez vous :</h1>
@@ -25,12 +26,7 @@
     <h2>Dernières annonces</h2>
     <div class="offers">
       {% for offer in offers %}
-        <div class="offer">
-          <img src="{{ offer.image }}" alt="image">
-          <h3>{{ offer.title }}</h3>
-          <p>{{ offer.description }}</p>
-          <a href="{{ route("offer", {"id": offer.id}) }}" class="btn">Voir l'annonce</a>
-        </div>
+        {% include "Components/offer.twig" with {'offer' : offer} %}
       {% endfor %}
     </div>
   </div>
