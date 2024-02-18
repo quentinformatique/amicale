@@ -87,10 +87,16 @@ a {
     font-size: 40px;
     text-align: center;
     text-shadow: black 0 0 1px; }
-  .container .last-offers hr {
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    width: 100%; }
+  .container .last-offers {
+    padding-top: 20px;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .container .last-offers hr {
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      width: 60vw; }
   .container .options {
     display: flex;
     align-items: center; }
