@@ -16,7 +16,8 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  height: 10vh; }
+  height: 10vh;
+  margin-bottom: 20px; }
   .navbar .left {
     display: flex;
     align-items: center; }
