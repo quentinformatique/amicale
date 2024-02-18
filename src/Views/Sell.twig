@@ -9,9 +9,7 @@
   <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
 {% include "Components/navbar.twig" %}
-
 <div class="container">
   {% for offer in offers %}
     {% include "Components/offer.twig" with {'title': offer.title, 'price': offer.price, 'imagePath': offer.imagePath, 'date': offer.date} %}
