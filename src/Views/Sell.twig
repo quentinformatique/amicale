@@ -12,7 +12,7 @@
 {% include "Components/navbar.twig" %}
 <div class="container">
   {% for offer in offers %}
-    {% include "Components/offer.twig" with {'title': offer.title, 'price': offer.price, 'imagePath': offer.imagePath, 'date': offer.date} %}
+    {% include "Components/offer.twig" with {'offer' : offer} %}
   {% endfor %}
 </div>
 {% include "Components/footer.twig" %}

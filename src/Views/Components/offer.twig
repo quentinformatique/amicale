@@ -1,48 +1,40 @@
 <div class="offer">
-    <div class="first-row">
-        <div class="image-container">
-            <button class="swipe-button">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <div class="image">
-                <img src="{{ media(imagePath) }}" alt="offer1">
-            </div>
-            <button class="swipe-button">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-        </div>
-        <div class="info-container">
-            <div class="title">
-                <h2>{{ title }}</h2>
-            </div>
-            <div class="row">
-                <div class="price">
-                    <h3>{{ price }} €</h3>
-                </div>
-                <div class="date">
-                    <h3>publié le {{ date }}</h3>
-                </div>
-            </div>
-            <div class="description">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                </p>
-            </div>
-        </div>
+  <div class="first-row">
+    <div class="image-container">
+      <button class="swipe-button">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="image">
+        <img src="{{ media(offer.image) }}" alt="offer">
+      </div>
+      <button class="swipe-button">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
-    <div class="second-row">
-        <hr>
-        <div class="contact">
-            Contact au <strong>06 12 34 56 78</strong> ou par mail à l'adresse suivante : <strong><a
-                        href="mailto:test@mail.fr">test@mail.fr</a></strong>
+    <div class="info-container">
+      <div class="title">
+        <h2>{{ offer.title }}</h2>
+      </div>
+      <div class="row">
+        <div class="price">
+          <h3>{{ offer.price }} €</h3>
         </div>
+        <div class="date">
+          <h3>publié le {{ offer.date }}</h3>
+        </div>
+      </div>
+      <div class="description">
+        <p>
+          {{ offer.description }}
+        </p>
+      </div>
     </div>
+  </div>
+  <div class="second-row">
+    <hr>
+    <div class="contact">
+      Contact au <strong>{{ offer.publisher.phone }}</strong> ou par mail à l'adresse suivante : <strong><a
+                href="mailto:{{ offer.publisher.mail }}">{{ offer.publisher.mail }}</a></strong>
+    </div>
+  </div>
 </div>

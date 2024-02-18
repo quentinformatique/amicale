@@ -7,77 +7,34 @@ use MvcLite\Models\Engine\Model;
 class Offer extends Engine\Model
 {
 
-    public static function getOffers(): array
+    public static function getOffers(): Engine\ModelCollection
     {
-        return [
-            "offer1" => [
-                'title' => "annonce de voiture de fou",
-                'price' => "12000",
-                'imagePath' => "databaseImages/voiture.jpg",
-                'date' => "16/12/2004"
-            ],
-            "offer2" => [
-                'title' => "vend pc gamer ultra",
-                'price' => "450",
-                'imagePath' => "databaseImages/pc.png",
-                'date' => "16/12/2004"
-            ],
-            "offer3" => [
-                'title' => "vend ps4 pro neuve, 1To, 3 jeux, 2 manettes",
-                'price' => "400",
-                'imagePath' => "databaseImages/ps4.png",
-                'date' => "16/12/2004"
-            ],
-        ];
+        return self::select()->execute();
     }
 
 
-    public function getVerifiedOffersByCategory($category): array
+    public static function getVerifiedOffersByCategory($category): array
     {
-        return [
-            "offer1" => [
-                'title' => "annonce de voiture de fou",
-                'price' => "12000",
-                'imagePath' => "databaseImages/voiture.jpg",
-                'date' => "16/12/2004"
-            ],
-            "offer2" => [
-                'title' => "vend pc gamer ultra",
-                'price' => "450",
-                'imagePath' => "databaseImages/pc.png",
-                'date' => "16/12/2004"
-            ],
-            "offer3" => [
-                'title' => "vend ps4 pro neuve, 1To, 3 jeux, 2 manettes",
-                'price' => "400",
-                'imagePath' => "databaseImages/ps4.png",
-                'date' => "16/12/2004"
-            ],
-        ];
+        return Offer::select()
+            ->where('type', $category)
+            ->where('valid', 1)
+            ->with('publisher')
+            ->execute()
+            ->publish();
     }
 
-    public function getUnverifiedOffersByCategory($category): array
+    public static function getUnverifiedOffersByCategory($category): array
     {
-        return [
-            "offer1" => [
-                'title' => "annonce de voiture de fou",
-                'price' => "12000",
-                'imagePath' => "databaseImages/voiture.jpg",
-                'date' => "16/12/2004"
-            ],
-            "offer2" => [
-                'title' => "vend pc gamer ultra",
-                'price' => "450",
-                'imagePath' => "databaseImages/pc.png",
-                'date' => "16/12/2004"
-            ],
-            "offer3" => [
-                'title' => "vend ps4 pro neuve, 1To, 3 jeux, 2 manettes",
-                'price' => "400",
-                'imagePath' => "databaseImages/ps4.png",
-                'date' => "16/12/2004"
-            ],
-        ];
+        return Offer::select()
+            ->where('type', $category)
+            ->where('valid', 0)
+            ->execute()
+            ->publish();
+    }
+
+    public function publisher(): User
+    {
+        return $this->belongsTo(User::class, 'id_agent');
     }
 
 }
