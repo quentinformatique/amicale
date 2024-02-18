@@ -7,9 +7,12 @@ use MvcLite\Models\Engine\Model;
 class Offer extends Engine\Model
 {
 
-    public static function getOffers(): Engine\ModelCollection
+    public static function getOffers(): array
     {
-        return self::select()->execute();
+        return self::select()
+            ->with('publisher')
+            ->execute()
+            ->publish();
     }
 
 
@@ -32,7 +35,7 @@ class Offer extends Engine\Model
             ->publish();
     }
 
-    public function publisher(): User
+    public function publisher(): Model
     {
         return $this->belongsTo(User::class, 'id_agent');
     }
