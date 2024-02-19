@@ -8,12 +8,6 @@ use MvcLite\Views\Engine\View;
 class BarterController extends Engine\Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-
-        // Empty constructor.
-    }
 
     public function render(): void
     {
