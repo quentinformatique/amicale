@@ -7,7 +7,6 @@ use MvcLite\Views\Engine\View;
 
 class LocationController extends Engine\Controller
 {
-
     public function render(): void
     {
         View::render("Location");
