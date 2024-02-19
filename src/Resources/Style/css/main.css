@@ -80,6 +80,7 @@ a {
       margin-right: 7px; }
 
 .container {
+  padding: 50px 0 25px;
   width: 100vw;
   display: flex;
   flex-direction: column;
