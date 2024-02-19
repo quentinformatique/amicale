@@ -11,10 +11,7 @@ use MvcLite\Views\Engine\View;
 class IndexController extends Engine\Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+
 
     public function render(): void
     {
