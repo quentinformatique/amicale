@@ -17,7 +17,7 @@ a
 
 
 .navbar
-  box-shadow: rgba(0, 0, 0, .4) 0 0 10px
+  box-shadow: rgba(0, 0, 0, .4) 0 0 5px
   background-color: white
   color: black
   display: flex
@@ -118,6 +118,10 @@ a
     flex-direction: column
     align-items: center
 
+    h2
+      font-size: 30px
+      margin-bottom: 20px
+
 
     hr
       border: 1px solid $color-blue
@@ -125,12 +129,13 @@ a
       width: 60vw
 
   .options
+    margin-bottom: 50px
     display: flex
     align-items: center
 
     .option
       margin: 0 10px
-      font-size: 30px
+      font-size: 25px
       padding: 20px 30px
       display: flex
       align-items: center
@@ -138,10 +143,11 @@ a
       border-radius: 9px
       transition: all 0.3s
       background: white
-      box-shadow: rgba(0, 0, 0, .4) 0 0 10px
 
       &:hover
+        box-shadow: rgba(0, 0, 0, .4) 0 0 5px
         background: $color-blue
         color: white
         cursor: pointer
+        transform: scale(1.05)
 

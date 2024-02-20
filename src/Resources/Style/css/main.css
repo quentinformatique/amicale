@@ -10,7 +10,7 @@ a {
   color: #000; }
 
 .navbar {
-  box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 0 5px;
   background-color: white;
   color: black;
   display: flex;
@@ -80,7 +80,6 @@ a {
       margin-right: 7px; }
 
 .container {
-  padding: 50px 0 25px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -96,25 +95,30 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center; }
+    .container .last-offers h2 {
+      font-size: 30px;
+      margin-bottom: 20px; }
     .container .last-offers hr {
       border: 1px solid #007bff;
       border-radius: 5px;
       width: 60vw; }
   .container .options {
+    margin-bottom: 50px;
     display: flex;
     align-items: center; }
     .container .options .option {
       margin: 0 10px;
-      font-size: 30px;
+      font-size: 25px;
       padding: 20px 30px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 9px;
       transition: all 0.3s;
-      background: white;
-      box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px; }
+      background: white; }
       .container .options .option:hover {
+        box-shadow: rgba(0, 0, 0, 0.4) 0 0 5px;
         background: #007bff;
         color: white;
-        cursor: pointer; }
+        cursor: pointer;
+        transform: scale(1.05); }
