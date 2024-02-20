@@ -28,13 +28,16 @@
           {{ offer.description }}
         </p>
       </div>
-    </div>
-  </div>
-  <div class="second-row">
-    <hr>
-    <div class="contact">
-      Contact au <strong>{{ offer.publisher.phone }}</strong> ou par mail à l'adresse suivante : <strong><a
-                href="mailto:{{ offer.publisher.mail }}">{{ offer.publisher.mail }}</a></strong>
+      <div class="contact-section">
+        <div class="contact">
+          <i class="fa-solid fa-phone"></i>
+          <strong>{{ offer.publisher.phone }}</strong>
+        </div>
+        <div class="contact">
+          <i class="fa-solid fa-at"></i>
+          <strong><a href="mailto:{{ offer.publisher.mail }}">{{ offer.publisher.mail }}</a></strong>
+        </div>
+      </div>
     </div>
   </div>
 </div>
