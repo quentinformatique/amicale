@@ -15,6 +15,28 @@ class Offer extends Engine\Model
             ->publish();
     }
 
+    public static function getVerifiedOffersByCategorySortedByPrice(string $category): array
+    {
+        return Offer::select()
+            ->where('type', $category)
+            ->where('valid', 1)
+            ->with('publisher')
+            ->orderBy('price', 'ASC') // Add this line to sort by price
+            ->execute()
+            ->publish();
+    }
+
+    public static function getVerifiedOffersByCategorySortedByDate(string $category): array
+    {
+        return Offer::select()
+            ->where('type', $category)
+            ->where('valid', 1)
+            ->with('publisher')
+            ->orderBy('date', 'DESC') // Add this line to sort by date
+            ->execute()
+            ->publish();
+    }
+
 
     public static function getVerifiedOffersByCategory($category): array
     {
