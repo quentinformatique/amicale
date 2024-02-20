@@ -13,13 +13,13 @@
 {% include "Components/navbar.twig" %}
 <div class="container">
   <div class="filters">
-      <div class="right">
-        <label for="filter">Trier par : </label>
-        <select name="filter" id="filter">
-          <option value="price">Prix</option>
-          <option value="date" selected>Date</option>
-        </select>
-      </div>
+    <div class="right">
+      <label for="filter">Trier par : </label>
+      <select name="filter" id="filter">
+        <option value="price">Prix</option>
+        <option value="date" selected>Date</option>
+      </select>
+    </div>
   </div>
   {% for offer in offers %}
     {% include "Components/offer.twig" with {'offer' : offer} %}
