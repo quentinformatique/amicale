@@ -21,7 +21,9 @@ class Offer extends Engine\Model
             ->where('type', $category)
             ->where('valid', 1)
             ->with('publisher')
-            ->orderBy('price', 'ASC') // Add this line to sort by price
+            ->orderBy(
+                ['price', 'ASC']
+            )
             ->execute()
             ->publish();
     }
@@ -32,7 +34,9 @@ class Offer extends Engine\Model
             ->where('type', $category)
             ->where('valid', 1)
             ->with('publisher')
-            ->orderBy('date', 'DESC') // Add this line to sort by date
+            ->orderBy(
+                ['date', 'DESC']
+            )
             ->execute()
             ->publish();
     }
