@@ -19,8 +19,8 @@ class SellController extends Engine\Controller
     private function getVerifiedSalesOffers(string $sortOrder): array
     {
         return match ($sortOrder) {
-            'price' => Offer::getVerifiedOffersByCategorySortedByPrice("1"),
-            default => Offer::getVerifiedOffersByCategorySortedByDate("1"),
+            'price' => Offer::getVerifiedOffersByCategorySortedByPrice("2"),
+            default => Offer::getVerifiedOffersByCategorySortedByDate("2"),
         };
     }
 }
