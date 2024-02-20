@@ -11,6 +11,7 @@ class Offer extends Engine\Model
     {
         return self::select()
             ->with('publisher')
+            ->orderBy(['date', 'DESC'])
             ->execute()
             ->publish();
     }
