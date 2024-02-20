@@ -3,25 +3,24 @@
 namespace MvcLite\Controllers;
 
 use MvcLite\Controllers\Engine\Controller;
-use MvcLite\Engine\DevelopmentUtilities\Debug;
 use MvcLite\Models\Offer;
-use MvcLite\Models\User;
 use MvcLite\Views\Engine\View;
 
 class SellController extends Engine\Controller
 {
-
-
-
     public function render(): void
     {
+        $sortOrder = $_GET['filter'] ?? 'date'; // Get the sort order from the request
         View::render("Sell", [
-            "offers" => $this->getVerifiedSalesOffers()
+            "offers" => $this->getVerifiedSalesOffers($sortOrder)
         ]);
     }
 
-    private function getVerifiedSalesOffers(): array
+    private function getVerifiedSalesOffers(string $sortOrder): array
     {
-        return Offer::getVerifiedOffersByCategory("1");
+        return match ($sortOrder) {
+            'price' => Offer::getVerifiedOffersByCategorySortedByPrice("1"),
+            default => Offer::getVerifiedOffersByCategorySortedByDate("1"),
+        };
     }
 }
