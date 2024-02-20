@@ -6,10 +6,20 @@
   padding: 15px
   margin: 15px
   border-radius: 20px
-  box-shadow: rgba(0, 0, 0, .4) 0 0 10px
+  border: 1px solid #cdcdcd
 
   .first-row
     display: flex
+    margin-bottom: 20px
+
+    .info-container
+      .contact-section
+        margin-top: 20px
+        display: flex
+        .contact
+          flex: 1
+          i
+            color: #007bff
 
     .image-container
       display: flex
@@ -39,15 +49,6 @@
           &:hover
             color: $color-blue
             scale: 1.1
-
-  .second-row
-    width: 100%
-    display: flex
-    flex-direction: column
-    align-items: center
-
-
-
 
 
 // TODO: Add media queries at 1200
