@@ -35,4 +35,25 @@
         border: 1px solid #cdcdcd
 
 
-// TODO: Add media queries at 1200
+@media screen and (max-width: 1400px)
+  .offer
+    width: 90vw
+    .image-container
+      img
+        width: 50vw !important
+@media screen and (max-width: 900px)
+    .first-row
+      flex-direction: column
+      .info-container
+        margin-top: 20px
+        .contact-section
+          margin-top: 20px
+          display: flex
+          .contact
+            flex: 1
+            i
+              color: #007bff
+      .image-container
+        padding-right: 0
+        img
+          width: 80vw !important
