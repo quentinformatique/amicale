@@ -62,7 +62,9 @@ a {
     .container .options .option {
       margin: 0 5px;
       font-size: 20px;
-      padding: 15px 20px !important; } }
+      padding: 15px 20px !important; }
+    .container .last-offers {
+      width: 100%; } }
 
 footer {
   background-color: white;
