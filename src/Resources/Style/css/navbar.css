@@ -62,7 +62,9 @@ a {
     .container .options .option {
       margin: 0 5px;
       font-size: 20px;
-      padding: 15px 20px !important; } }
+      padding: 15px 20px !important; }
+    .container .last-offers {
+      width: 100%; } }
 
 .navbar {
   box-shadow: rgba(0, 0, 0, 0.4) 0 0 5px;
@@ -145,4 +147,9 @@ a {
       justify-content: center;
       margin-bottom: 10px; }
     .navbar .publish-button {
-      margin-top: 10px; } }
+      margin-top: 10px; }
+    .navbar .menu a {
+      margin: 5px 2px;
+      padding: 5px 2px;
+      text-align: center;
+      width: 100%; } }
