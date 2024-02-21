@@ -72,6 +72,8 @@ a {
   .navbar .left {
     display: flex;
     align-items: center; }
+    .navbar .left:hover {
+      cursor: pointer; }
     .navbar .left .logo {
       height: 8vh; }
     .navbar .left .title {
