@@ -27,7 +27,8 @@ a {
     align-items: center; }
     .container .last-offers h2 {
       font-size: 30px;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      text-align: center; }
     .container .last-offers hr {
       border: 1px solid #007bff;
       border-radius: 5px;
@@ -52,10 +53,14 @@ a {
 
 @media screen and (max-width: 1400px) {
   .container {
-    padding: 0 20px; }
+    padding: 0; }
     .container h1 {
-      font-size: 30px; }
+      font-size: 30px;
+      margin: 0; }
+    .container h2 {
+      font-size: 25px; }
     .container .options .option {
+      margin: 0 5px;
       font-size: 20px;
       padding: 15px 20px !important; } }
 
