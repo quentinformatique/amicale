@@ -1,74 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Publier</title>
-    {{ resource('Style/css/main.css') }}
-    {{ resource('Style/css/footer.css') }}
-    {{ resource('Style/css/form.css') }}
-    <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <title>Publier</title>
+  {{ resource('Style/css/main.css') }}
+  {{ resource('Style/css/footer.css') }}
+  {{ resource('Style/css/form.css') }}
+  {{ resource('Style/css/navbar.css') }}
+  {{ resource('js/navbarToIndex.js') }}
+  <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 {% include "Components/navbar.twig" %}
 
 <div class="container">
-    <form class="annonce-form">
-        <div class="form-group">
-            <label for="photos">Photos (max 3)</label>
-            <input type="file" name="photos[]" id="photos" multiple>
+  <form class="annonce-form">
+    <div class="form-group">
+      <label for="photos">Photos (max 3)</label>
+      <input type="file" name="photos[]" id="photos" multiple>
+    </div>
+    <div class="form-group">
+      <label for="checkboxType">Quel type d'annonce ?</label>
+      <br>
+      <div class="checkboxList" id="checkboxType">
+        <div class="checkbox">
+          <input type="checkbox" id="vente" name="vente">
+          <label for="vente">Vente</label>
         </div>
-        <div class="form-group">
-            <label for="checkboxType">Quel type d'annonce ?</label>
-            <br>
-            <div class="checkboxList" id="checkboxType">
-                <div class="checkbox">
-                    <input type="checkbox" id="vente" name="vente">
-                    <label for="vente">Vente</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="troc" name="troc">
-                    <label for="troc">Troc</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="location" name="location">
-                    <label for="location">Location</label>
-                </div>
-            </div>
+        <div class="checkbox">
+          <input type="checkbox" id="troc" name="troc">
+          <label for="troc">Troc</label>
         </div>
-        <div class="form-group">
-            <label for="titre">Titre de l'annonce</label>
-            <input type="text" id="titre" name="titre" required>
+        <div class="checkbox">
+          <input type="checkbox" id="location" name="location">
+          <label for="location">Location</label>
         </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="titre">Titre de l'annonce</label>
+      <input type="text" id="titre" name="titre" required>
+    </div>
 
-        <div class="form-group">
-            <label for="prix">Prix</label>
-            <input type="number" id="prix" name="prix" required>
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="code_agent">Code agent</label>
-            <input type="text" id="code_agent" name="code_agent" required>
-        </div>
-        <div class="form-group">
-            <label for="telephone">Numéro de téléphone</label>
-            <input type="tel" id="telephone" name="telephone" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Adresse email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <!-- checkbox afin d'accepter l'utilisation de ses données-->
-        <div class="form-group checkbox-data">
-            <input type="checkbox" id="accept" name="accept" required>
-            <label class="label-data" for="accept">J'accepte que mes données soient utilisées pour la création de
-                l'annonce</label>
-        </div>
-        <button class="submit" type="submit">Créer l'annonce</button>
-    </form>
+    <div class="form-group">
+      <label for="prix">Prix</label>
+      <input type="number" id="prix" name="prix" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="code_agent">Code agent</label>
+      <input type="text" id="code_agent" name="code_agent" required>
+    </div>
+    <div class="form-group">
+      <label for="telephone">Numéro de téléphone</label>
+      <input type="tel" id="telephone" name="telephone" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Adresse email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <!-- checkbox afin d'accepter l'utilisation de ses données-->
+    <div class="form-group checkbox-data">
+      <input type="checkbox" id="accept" name="accept" required>
+      <label class="label-data" for="accept">J'accepte que mes données soient utilisées pour la création de
+        l'annonce</label>
+    </div>
+    <button class="submit" type="submit">Créer l'annonce</button>
+  </form>
 
 </div>
 {% include "Components/footer.twig" %}
