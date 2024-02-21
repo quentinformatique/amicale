@@ -36,7 +36,7 @@ class Offer extends Engine\Model
             ->where('valid', 1)
             ->with('publisher')
             ->orderBy(
-
+                ['date', 'DESC']
             )
             ->execute()
             ->publish();
