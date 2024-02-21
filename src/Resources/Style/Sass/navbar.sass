@@ -1,0 +1,99 @@
+@import "main.sass"
+
+.navbar
+  box-shadow: rgba(0, 0, 0, .4) 0 0 5px
+  background-color: white
+  color: black
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 20px
+  height: 10vh
+  margin-bottom: 20px
+
+  .left
+    display: flex
+    align-items: center
+
+    .logo
+      height: 8vh
+
+    .title
+      color: $color-blue
+      margin: 5px 15px
+
+  .search-navbar
+    display: flex
+    align-items: center
+    border: 1px solid black
+    border-radius: 5px
+    padding: 5px 10px
+    margin: 0 10px
+
+    button
+      font-size: 20px
+      margin-left: 5px
+      border: none
+      outline: none
+      cursor: pointer
+      transition: all 0.3s
+      background: white
+
+    input
+      border: none
+      outline: none
+      font-size: 20px
+      margin-left: 5px
+
+  .menu
+    display: flex
+    justify-content: space-between
+    align-items: center
+    list-style: none
+    margin: 0
+    padding: 0
+
+    .current
+      font-weight: bold
+
+    a
+      margin: 0 10px
+      font-size: 20px
+      padding: 5px 10px
+      border-radius: 5px
+      transition: all 0.3s
+
+      &:hover
+        text-decoration: underline
+
+  .publish-button
+    display: flex
+    align-items: center
+    color: white
+    border: none
+    background: $color-blue
+    font-size: 20px
+    border-radius: 10px
+    padding: 5px 10px
+    margin: 0 10px
+    outline: none
+    transition: all 0.3s
+
+    i
+      margin-right: 7px
+
+@media screen and (max-width: 900px)
+  .navbar
+    flex-direction: column
+    height: auto
+    padding: 10px
+
+    .left
+      justify-content: center
+
+    .menu
+      justify-content: center
+      flex-direction: column
+
+      a
+        margin: 10px 0
