@@ -153,13 +153,3 @@ a {
         align-items: center; }
         .offer .first-row .image-container .image img {
           width: 30vw; }
-      .offer .first-row .image-container .swipe-button {
-        border: none;
-        background: #f5f5f5; }
-        .offer .first-row .image-container .swipe-button i {
-          font-size: 30px;
-          color: #000;
-          transition: all 0.3s; }
-          .offer .first-row .image-container .swipe-button i:hover {
-            color: #007bff;
-            scale: 1.1; }
