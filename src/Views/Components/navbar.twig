@@ -11,11 +11,11 @@
     <a href="{{ route("index") }}"
        class="{{ request().getUri() == "/" ? "current" :"" }}">Accueil</a>
     <a href="{{ route("sell") }}"
-       class="{{ request().getUri() == "sell" ? "current" :"" }}">Vente</a>
+       class="{{ request().getUri() == "/sell" ? "current" :"" }}">Vente</a>
     <a href="{{ route("barter") }}"
-       class="{{ request().getUri() == "barter" ? "current" :"" }}">Troc</a>
+       class="{{ request().getUri() == "/barter" ? "current" :"" }}">Troc</a>
     <a href="{{ route("location") }}"
-       class="{{ request().getUri() == "location" ? "current" :"" }}">Location</a>
+       class="{{ request().getUri() == "/location" ? "current" :"" }}">Location</a>
   </div>
   <a class="publish-button" href="{{ route("publish") }}">
     <i class="fa-regular fa-square-plus"></i>
