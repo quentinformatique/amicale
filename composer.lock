@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "belicfr/mvclite-core",
-            "version": "1.0.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/belicfr/mvclite-core.git",
-                "reference": "3c93e42ecc81a29b136b845c9bccff78e899e1a8"
+                "reference": "31ffb2939adaf9011de39725157f86fee6a0315c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/belicfr/mvclite-core/zipball/3c93e42ecc81a29b136b845c9bccff78e899e1a8",
-                "reference": "3c93e42ecc81a29b136b845c9bccff78e899e1a8",
+                "url": "https://api.github.com/repos/belicfr/mvclite-core/zipball/31ffb2939adaf9011de39725157f86fee6a0315c",
+                "reference": "31ffb2939adaf9011de39725157f86fee6a0315c",
                 "shasum": ""
             },
             "require": {
@@ -44,9 +44,9 @@
             "description": "MVCLite core part",
             "support": {
                 "issues": "https://github.com/belicfr/mvclite-core/issues",
-                "source": "https://github.com/belicfr/mvclite-core/tree/1.0.1"
+                "source": "https://github.com/belicfr/mvclite-core/tree/1.1.2"
             },
-            "time": "2024-02-26T20:03:07+00:00"
+            "time": "2024-02-26T20:54:24+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
