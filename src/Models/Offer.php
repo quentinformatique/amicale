@@ -17,6 +17,16 @@ class Offer extends Model
             ->publish();
     }
 
+    public function getVerifiedOffers(): array
+    {
+        return self::select()
+            ->where('valid', 1)
+            ->with('publisher')
+            ->orderBy('date', 'DESC')
+            ->execute()
+            ->publish();
+    }
+
     public static function getVerifiedOffersByCategorySortedByPrice(string $category): array
     {
         return Offer::select()
