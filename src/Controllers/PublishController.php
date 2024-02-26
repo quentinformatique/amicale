@@ -3,7 +3,9 @@
 namespace MvcLite\Controllers;
 
 use MvcLite\Controllers\Engine\Controller;
+use MvcLite\Engine\DevelopmentUtilities\Debug;
 use MvcLite\Models\Offer;
+use MvcLite\Router\Engine\Request;
 use MvcLite\Views\Engine\View;
 
 class PublishController extends Engine\Controller
@@ -14,27 +16,41 @@ class PublishController extends Engine\Controller
         View::render("Publish");
     }
 
-    public function createOffer(): void
+    public function createOffer(Request $request): void
     {
         // Retrieve form data from request
-        $photos = $_FILES['photos'];
-        $type = $_POST['type'];
-        $title = $_POST['titre'];
-        $price = $_POST['prix'];
-        $description = $_POST['description'];
-        $agentCode = $_POST['code_agent'];
-        $phone = $_POST['telephone'];
-        $email = $_POST['email'];
-        $accept = $_POST['accept'];
+        $photos = "nothing yet";
+        $title = $request->getInput('titre');
+        $price = $request->getInput('prix');
+        $description = $request->getInput('description');
+        $agentCode = $request->getInput('code_agent');
+        $phone = $request->getInput('phone');
+        $email = $request->getInput('email');
+        $accept = $request->getInput('accept');
+        $type = $request->getInput('type');
+
+        // type gestion
+        if (sizeof($type) > 1) {
+            View::render("Publish", ['error' => 'Veuillez choisir un seul type.']);
+            return;
+        } else if (sizeof($type) == 0) {
+            View::render("Publish", ['error' => 'Veuillez choisir un type.']);
+            return;
+        } else {
+            $type = $type[0];
+        }
+
 
         // Validate form data
-        if (empty($title) || empty($price) || empty($description) || empty($agentCode) || empty($phone) || empty($email) || empty($accept)) {
+        if (empty($title) || empty($price) || empty($description) || empty($agentCode) || empty($phone) || empty($email) || $accept != "on" || empty($type)) {
             // Return error message to user
-            View::render("Publish", ['error' => 'All fields are required.']);
+            Debug::dd($title, $price, $description, $agentCode, $phone, $email, $accept, $type);
+            View::render("Publish", ['error' => 'Tous les champs sont obligatoires.']);
             return;
         }
 
         // Handle file uploads
+        /* TODO: Handle file uploads
         $photoPaths = [];
         for ($i = 0; $i < count($photos['name']); $i++) {
             if (is_uploaded_file($photos['tmp_name'][$i])) {
@@ -48,12 +64,16 @@ class PublishController extends Engine\Controller
                 }
             }
         }
+        */
 
         // Save Offer to database
-        Offer::newOffer($type, $title, $price, $description, $agentCode, $phone, $email, $photoPaths);
+        $photoPath= "empty";
+        $offer = Offer::newOffer($type, $title, $price, $description, $agentCode, $phone, $email, $photoPath);
 
         // Redirect user to success page
-        header("Location: /success");
+        View::render("success", [
+            "offer" => $offer
+        ]);
     }
 
 }
