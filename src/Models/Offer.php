@@ -3,6 +3,7 @@
 namespace MvcLite\Models;
 
 use MvcLite\Database\Engine\Database;
+use MvcLite\Engine\DevelopmentUtilities\Debug;
 use MvcLite\Models\Engine\Model;
 
 class Offer extends Engine\Model
@@ -59,12 +60,32 @@ class Offer extends Engine\Model
             ->publish();
     }
 
-    public static function newOffer(mixed $type, mixed $title, mixed $price, mixed $description, mixed $agentCode, mixed $phone, mixed $email, array $photoPaths): void
+    public static function newOffer(mixed $type, mixed $title, mixed $price, mixed $description, mixed $agentCode, mixed $phone, mixed $email, string $photoPath): mixed
     {
-        Database::query(
-            "INSERT INTO offers (type, titre, prix, description, id_agent, telephone, email, valid, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            $type, $title, $price, $description, $agentCode, $phone, $email, 0, date('Y-m-d')
-        );
+        // if the user is not an agent, we need to create a new agent
+        $agent = User::getUserByCode($agentCode)->asArray();
+        if (count($agent) == 0) {
+            $agent = User::newAgent($agentCode, $phone, $email);
+        } else {
+            $agent = $agent[0];
+        }
+        Debug::dump($agent , $price, $description, $title, $type, $photoPath, date("Y-m-d H:i:s"));
+
+        Database::query("INSERT INTO offers (id_agent, price, description, title, type, image, date) VALUES (?, ?, ?, ?, ?, ?, ?)", [$agent->id, $price, $description, $title, $type, $photoPath, date("Y-m-d H:i:s")]);
+
+        $offer = self::select()
+            ->where('id_agent', $agent->id)
+            ->where('price', $price)
+            ->where('description', $description)
+            ->where('title', $title)
+            ->where('type', $type)
+            ->where('image', $photoPath)
+            ->execute()
+            ->publish();
+
+        return $offer[0];
+
+
     }
 
     public function publisher(): Model
