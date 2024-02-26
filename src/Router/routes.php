@@ -20,3 +20,4 @@ Router::get("/publish", PublishController::class, "render")->setName("publish");
 Router::get("/location", LocationController::class, "render")->setName("location");
 Router::get("/barter", BarterController::class, "render")->setName("barter");
 Router::get("/sell", SellController::class, "render")->setName("sell");
+Router::get("/submitOffer", PublishController::class, "createOffer")->setName("submitOffer");
