@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "508905cf0dfd03307f244d60673d1597",
+    "content-hash": "4c5400d9cb35f103111b5402f06f346d",
     "packages": [
+        {
+            "name": "belicfr/mvclite-core",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/belicfr/mvclite-core.git",
+                "reference": "3c93e42ecc81a29b136b845c9bccff78e899e1a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/belicfr/mvclite-core/zipball/3c93e42ecc81a29b136b845c9bccff78e899e1a8",
+                "reference": "3c93e42ecc81a29b136b845c9bccff78e899e1a8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "symfony/string": "^7.0",
+                "twig/twig": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MvcliteCore\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan",
+                    "email": "96206878+belicfr@users.noreply.github.com"
+                }
+            ],
+            "description": "MVCLite core part",
+            "support": {
+                "issues": "https://github.com/belicfr/mvclite-core/issues",
+                "source": "https://github.com/belicfr/mvclite-core/tree/1.0.1"
+            },
+            "time": "2024-02-26T20:03:07+00:00"
+        },
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.29.0",
