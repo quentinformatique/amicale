@@ -2,11 +2,10 @@
 
 namespace MvcLite\Models;
 
-use MvcLite\Database\Engine\Database;
-use MvcLite\Engine\DevelopmentUtilities\Debug;
-use MvcLite\Models\Engine\Model;
+use MvcliteCore\Database\Database;
+use MvcliteCore\Models\Model;
 
-class Offer extends Engine\Model
+class Offer extends Model
 {
 
     public static function getOffers(): array
@@ -60,26 +59,36 @@ class Offer extends Engine\Model
             ->publish();
     }
 
-    public static function newOffer(mixed $type, mixed $title, mixed $price, mixed $description, mixed $agentCode, mixed $phone, mixed $email, string $photoPath): mixed
+    public static function newOffer(mixed $type, string $title, float $price, string $description, mixed $agentCode, mixed $phone, string $email, string $photoPath): mixed
     {
-        // if the user is not an agent, we need to create a new agent
-        $agent = User::getUserByCode($agentCode)->asArray();
-        if (count($agent) == 0) {
-            $agent = User::newAgent($agentCode, $phone, $email);
-        } else {
-            $agent = $agent[0];
+        // if coordinates of the agent are not in the database, add them
+        $agent = User::getUser($agentCode, $phone, $email)->get(0);
+        if (empty($agent)) {
+            User::newAgent($agentCode, $phone, $email);
+            $agent = User::getUser($agentCode, $phone, $email)->get(0);
         }
-        Debug::dump($agent , $price, $description, $title, $type, $photoPath, date("Y-m-d H:i:s"));
+        $id = $agent->getPublicAttributes()['id'];
 
-        Database::query("INSERT INTO offers (id_agent, price, description, title, type, image, date) VALUES (?, ?, ?, ?, ?, ?, ?)", [$agent->id, $price, $description, $title, $type, $photoPath, date("Y-m-d H:i:s")]);
+        Offer::create(
+            [
+                'id_agent' => $id,
+                'price' => $price,
+                'description' => $description,
+                'title' => $title,
+                'type' => $type,
+                'image' => $photoPath,
+                'date' => date("Y-m-d H:i:s")
+            ]
+        );
 
         $offer = self::select()
-            ->where('id_agent', $agent->id)
+            ->where('id_agent', $id)
             ->where('price', $price)
             ->where('description', $description)
             ->where('title', $title)
             ->where('type', $type)
             ->where('image', $photoPath)
+            ->with('publisher')
             ->execute()
             ->publish();
 
