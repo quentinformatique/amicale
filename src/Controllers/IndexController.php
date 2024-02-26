@@ -2,13 +2,11 @@
 
 namespace MvcLite\Controllers;
 
-use MvcLite\Controllers\Engine\Controller;
-use MvcLite\Engine\DevelopmentUtilities\Debug;
-use MvcLite\Engine\InternalResources\Storage;
+use MvcliteCore\Controllers\Controller;
 use MvcLite\Models\Offer;
-use MvcLite\Views\Engine\View;
+use MvcliteCore\Views\View;
 
-class IndexController extends Engine\Controller
+class IndexController extends Controller
 {
 
 
