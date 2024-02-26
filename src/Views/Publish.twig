@@ -16,7 +16,7 @@
 {% include "Components/navbar.twig" %}
 
 <div class="container">
-  <form class="annonce-form">
+  <form class="annonce-form" action="{{ route("submitOffer") }}">
     <div class="form-group">
       <label for="photos">Photo</label>
       <input type="file" name="photos[]" id="photos" multiple>
@@ -26,15 +26,15 @@
       <br>
       <div class="checkboxList" id="checkboxType">
         <div class="checkbox">
-          <input type="checkbox" id="vente" name="vente">
+          <input type="checkbox" id="vente" name="vente" value="2">
           <label for="vente">Vente</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" id="troc" name="troc">
+          <input type="checkbox" id="troc" name="troc" value="3">
           <label for="troc">Troc</label>
         </div>
         <div class="checkbox">
-          <input type="checkbox" id="location" name="location">
+          <input type="checkbox" id="location" name="location" value="1">
           <label for="location">Location</label>
         </div>
       </div>
