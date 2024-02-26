@@ -24,6 +24,7 @@ class Database
         $this->credentials = $credentials;
     }
 
+
     /**
      * Try to connect to database with given credentials.
      *
