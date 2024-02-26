@@ -2,11 +2,11 @@
 
 namespace MvcLite\Controllers;
 
-use MvcLite\Controllers\Engine\Controller;
+use MvcliteCore\Controllers\Controller;
 use MvcLite\Models\Offer;
-use MvcLite\Views\Engine\View;
+use MvcliteCore\Views\View;
 
-class SellController extends Engine\Controller
+class SellController extends Controller
 {
     public function render(): void
     {
