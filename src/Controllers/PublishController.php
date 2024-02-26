@@ -2,8 +2,11 @@
 
 namespace MvcLite\Controllers;
 
+use Exception;
 use MvcliteCore\Controllers\Controller;
 use MvcLite\Models\Offer;
+use MvcliteCore\Engine\DevelopmentUtilities\Debug;
+use MvcliteCore\Engine\InternalResources\Storage;
 use MvcliteCore\Router\Request;
 use MvcliteCore\Views\View;
 
@@ -18,7 +21,7 @@ class PublishController extends Controller
     public function createOffer(Request $request): void
     {
         // Retrieve form data from request
-        $photos = "nothing yet";
+        $photos = $request->getFile('photo')->asImage();
         $title = $request->getInput('titre');
         $price = $request->getInput('prix');
         $description = $request->getInput('description');
@@ -27,9 +30,6 @@ class PublishController extends Controller
         $email = $request->getInput('email');
         $accept = $request->getInput('accept');
         $type = $request->getInput('type');
-
-
-
 
         // Validate form data
         if (empty($title) || empty($price) || empty($description) || empty($agentCode) || empty($phone) || empty($email) || $accept != "on" || empty($type)) {
@@ -49,19 +49,22 @@ class PublishController extends Controller
             $type = $type[0];
         }
 
-
-        // Handle file upload
-        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
-            $photo = $_FILES['photo'];
-            $photoPath = "uploads/" . $photo['name'];
-            move_uploaded_file($photo['tmp_name'], $photoPath);
+        // photo gestion
+        if ($photos->isImage()) {
+            if ($photos->getSize() > 1000000) {
+                View::render("Publish", ['error' => 'La taille de l\'image ne doit pas dépasser 1Mo.']);
+                return;
+            }
         } else {
-            View::render("Publish", ['error' => 'Veuillez choisir une photo.']);
+            View::render("Publish", ['error' => 'Le fichier doit être une image.']);
+            return;
         }
+        // we name the photo as the agent code + the title + 10 random characters
+        $photoName = $agentCode . $title . substr(md5(uniqid(rand(), true)), 0, 10);
+        $photos->setName($photoName);
 
-
-        // Save Offer to database
-        $photoPath= "empty";
+        Storage::createImage($photos, "Medias/databaseImages");
+        $photoPath = "databaseImages/" . $photos->getName();
         $offer = Offer::newOffer($type, $title, $price, $description, $agentCode, $phone, $email, $photoPath);
 
         // Redirect user to success page
@@ -69,5 +72,4 @@ class PublishController extends Controller
             "offer" => $offer
         ]);
     }
-
 }
