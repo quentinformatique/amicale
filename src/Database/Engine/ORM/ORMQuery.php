@@ -18,13 +18,13 @@ class ORMQuery
     /** Current model class. */
     private string $modelClass;
 
-    /** Table columns used by query. */
-    private array $columns;
+    /** Generated SQL query. */
+    private string $sql;
 
-    public function __construct(string $modelClass, array $columns)
+    public function __construct(string $modelClass)
     {
         $this->modelClass = $modelClass;
-        $this->columns = $columns;
+        $this->sql = "";
     }
 
     /**
@@ -36,39 +36,28 @@ class ORMQuery
     }
 
     /**
-     * @return array Table columns used by query
-     */
-    public function getColumns(): array
-    {
-        return $this->columns;
-    }
-
-    /**
-     * @return string Imploded table columns used by query
-     */
-    protected function getImplodedColumns(): string
-    {
-        return implode(', ', $this->getColumns());
-    }
-
-    /**
      * @return string Generated SQL query
      */
-    public function getSqlQuery(): string
+    public function getSql(): string
     {
-        return "SELECT NULL";
+        return $this->sql;
     }
 
     /**
-     * Execute a null ORM query.
+     * Appends to SQL query the given line.
      *
-     * Please use children class to get results.
-     *
-     * @see ORMSelection
-     * @return ModelCollection Query execution result
+     * @param string $line
+     * @return string Updated SQL query
      */
-    public function execute(): ModelCollection
+    public function addSql(string $line): string
     {
-        return new ModelCollection();
+        if (strlen($this->getSql()))
+        {
+            $this->sql .= ' ';
+        }
+
+        $this->sql .= $line;
+
+        return $this->getSql();
     }
 }

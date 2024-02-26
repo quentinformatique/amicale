@@ -12,7 +12,7 @@ class Offer extends Engine\Model
     {
         return self::select()
             ->with('publisher')
-            ->orderBy(['date', 'DESC'])
+            ->orderBy('date', 'DESC')
             ->execute()
             ->publish();
     }
@@ -23,9 +23,7 @@ class Offer extends Engine\Model
             ->where('type', $category)
             ->where('valid', 1)
             ->with('publisher')
-            ->orderBy(
-                ['price', 'ASC']
-            )
+            ->orderBy('price')
             ->execute()
             ->publish();
     }
@@ -36,9 +34,7 @@ class Offer extends Engine\Model
             ->where('type', $category)
             ->where('valid', 1)
             ->with('publisher')
-            ->orderBy(
-                ['date', 'DESC']
-            )
+            ->orderBy('date', 'DESC')
             ->execute()
             ->publish();
     }

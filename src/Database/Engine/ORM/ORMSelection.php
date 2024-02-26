@@ -3,7 +3,10 @@
 namespace MvcLite\Database\Engine\ORM;
 
 use MvcLite\Database\Engine\Database;
+use MvcLite\Database\Engine\Exceptions\NegativeOrNullLimitException;
+use MvcLite\Database\Engine\Exceptions\RelationshipDoesNotExistException;
 use MvcLite\Engine\DevelopmentUtilities\Debug;
+use MvcLite\Models\Engine\Model;
 use MvcLite\Models\Engine\ModelCollection;
 
 /**
@@ -25,6 +28,9 @@ class ORMSelection extends ORMQuery
     private const ORDER_BY_CLAUSE_TEMPLATE
         = "ORDER BY %s";
 
+    /** Table columns used by query. */
+    private array $columns;
+
     /** Linked relationships. */
     private array $relationships;
 
@@ -34,39 +40,41 @@ class ORMSelection extends ORMQuery
     /** Given ORDER BY clauses. */
     private array $ordering;
 
+    /** Given LIMIT clause. */
+    private ?int $limit;
+
     public function __construct(string $modelClass, array $columns)
     {
-        parent::__construct($modelClass, $columns);
+        parent::__construct($modelClass);
 
+        $this->columns = $columns;
         $this->relationships = [];
         $this->conditions = [];
         $this->ordering = [];
+        $this->limit = null;
+
+        $sqlQueryBase = sprintf(self::BASE_SQL_QUERY_TEMPLATE,
+            $this->getImplodedColumns(),
+            ($this->getModelClass())::getTableName());
+
+        $this->addSql($sqlQueryBase);
+
     }
 
     /**
-     * @return string Generated SQL query
+     * @return array Table columns used by query
      */
-    public function getSqlQuery(): string
+    public function getColumns(): array
     {
-        $sql = sprintf(self::BASE_SQL_QUERY_TEMPLATE,
-            parent::getImplodedColumns(),
-            ($this->getModelClass())::getTableName());
+        return $this->columns;
+    }
 
-        if ($this->hasConditions())
-        {
-            $conditions = implode(" AND ", $this->getConditions());
-            $clause = sprintf(self::WHERE_CLAUSE_TEMPLATE, $conditions);
-            $sql .= " $clause";
-        }
-
-        if ($this->hasOrdering())
-        {
-            $ordering = implode(', ', $this->getOrdering());
-            $clause = sprintf(self::ORDER_BY_CLAUSE_TEMPLATE, $ordering);
-            $sql .= " $clause";
-        }
-
-        return $sql;
+    /**
+     * @return string Imploded table columns used by query
+     */
+    protected function getImplodedColumns(): string
+    {
+        return implode(', ', $this->getColumns());
     }
 
     /**
@@ -110,6 +118,16 @@ class ORMSelection extends ORMQuery
         return count($this->getOrdering());
     }
 
+    public function getLimit(): int
+    {
+        return $this->limit;
+    }
+
+    public function hasLimit(): bool
+    {
+        return $this->limit !== null;
+    }
+
     /**
      * Add a where condition clause to current query.
      *
@@ -122,27 +140,74 @@ class ORMSelection extends ORMQuery
      */
     public function where(string $column, string $operatorOrValue, ?string $value = null): ORMSelection
     {
-        $sqlWhereClause = $value === null
-            ? "$column = $operatorOrValue"
-            : "$column $operatorOrValue $value";
+        $sqlWhereClause = $this->prepareWhereClauseLine($column, $operatorOrValue, $value);
+        $sqlWhereClause = $this->hasConditions()
+            ? "AND $sqlWhereClause"
+            : "WHERE $sqlWhereClause";
 
+        $this->addSql($sqlWhereClause);
         $this->conditions[] = $sqlWhereClause;
 
         return $this;
     }
 
+    public function orWhere(string $column, string $operatorOrValue, ?string $value = null): ORMSelection
+    {
+        $sqlWhereClause = $this->prepareWhereClauseLine($column, $operatorOrValue, $value);
+        $sqlWhereClause = $this->hasConditions()
+            ? "OR $sqlWhereClause"
+            : "WHERE $sqlWhereClause";
+
+        $this->addSql($sqlWhereClause);
+        $this->conditions[] = $sqlWhereClause;
+
+        return $this;
+    }
+
+    private function prepareWhereClauseLine(string $column, $operatorOrValue, ?string $value = null): string
+    {
+        return $sqlWhereClause = $value === null
+            ? "$column = $operatorOrValue"
+            : "$column $operatorOrValue $value";
+    }
+
     /**
      * Add an order by clause to current query.
      *
-     * @param array ...$columnsRules
+     * @param string $column
+     * @param string $order
      * @return $this Current ORM query instance
      */
-    public function orderBy(array ...$columnsRules): ORMSelection
+    public function orderBy(string $column, string $order = "ASC"): ORMSelection
     {
-        foreach ($columnsRules as $rule)
+        $order = strtoupper($order);
+
+        $orderingClause = $this->hasOrdering()
+            ? ", $column $order"
+            : "ORDER BY $column $order";
+
+        $this->addSql($orderingClause);
+        $this->ordering[] = $orderingClause;
+
+        return $this;
+    }
+
+    /**
+     * Add a limit clause to current query.
+     *
+     * @param int $limit Maximum lines to return
+     * @return $this Current ORM query instance
+     * @throws NegativeOrNullLimitException If given limit value is
+     *                                      <= 0
+     */
+    public function limit(int $limit): ORMSelection
+    {
+        if ($limit <= 0)
         {
-            $this->ordering[] = "$rule[0] $rule[1]";
+            throw new NegativeOrNullLimitException($this->getSqlQuery());
         }
+
+        $this->limit = $limit;
 
         return $this;
     }
@@ -155,7 +220,7 @@ class ORMSelection extends ORMQuery
      */
     public function execute(): ModelCollection
     {
-        $query = Database::query($this->getSqlQuery());
+        $query = Database::query($this->getSql());
         $result = [];
 
         while ($line = $query->get())
@@ -170,6 +235,12 @@ class ORMSelection extends ORMQuery
 
             foreach ($this->getRelationships() as $relationship)
             {
+                if (!method_exists($lineObject, $relationship))
+                {
+                    $error = new RelationshipDoesNotExistException($relationship);
+                    $error->render();
+                }
+
                 $relationshipRunning = call_user_func([$lineObject, $relationship]);
                 $lineObject->addPublicAttribute($relationship, $relationshipRunning);
             }

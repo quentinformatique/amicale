@@ -9,7 +9,6 @@ use MvcLite\Router\Engine\Redirect;
 
 class GuestMiddleware extends Middleware
 {
-
     public function run(): bool
     {
         if (Session::isLogged())
