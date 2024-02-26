@@ -38,7 +38,7 @@ class PublishController extends Engine\Controller
         $photoPaths = [];
         for ($i = 0; $i < count($photos['name']); $i++) {
             if (is_uploaded_file($photos['tmp_name'][$i])) {
-                $targetPath = "uploads/" . basename($photos['name'][$i]);
+                $targetPath = "Resources/Medias/databaseImages/" . basename($photos['name'][$i]);
                 if (move_uploaded_file($photos['tmp_name'][$i], $targetPath)) {
                     $photoPaths[] = $targetPath;
                 } else {
