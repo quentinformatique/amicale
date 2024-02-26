@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function render(): void
     {
         // we keep the last 10 offers
-        $offers = $this->getOffers();
+        $offers = $this->getVerifiedOffers();
         if (count($offers) > 10) {
             $offers = array_slice($offers, -10);
         }
@@ -24,9 +24,10 @@ class IndexController extends Controller
 
     }
 
-    private function getOffers(): array
+    private function getVerifiedOffers(): array
     {
-        return Offer::getOffers();
+        return (new \MvcLite\Models\Offer)->getVerifiedOffers();
     }
+
 
 }
