@@ -2,6 +2,7 @@
 
 namespace MvcLite\Models;
 
+use MvcLite\Database\Engine\Database;
 use MvcLite\Models\Engine\Model;
 
 class Offer extends Engine\Model
@@ -62,9 +63,18 @@ class Offer extends Engine\Model
             ->publish();
     }
 
+    public static function newOffer(mixed $type, mixed $title, mixed $price, mixed $description, mixed $agentCode, mixed $phone, mixed $email, array $photoPaths): void
+    {
+        Database::query(
+            "INSERT INTO offers (type, titre, prix, description, id_agent, telephone, email, valid, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            $type, $title, $price, $description, $agentCode, $phone, $email, 0, date('Y-m-d')
+        );
+    }
+
     public function publisher(): Model
     {
         return $this->belongsTo(User::class, 'id_agent');
     }
+
 
 }
