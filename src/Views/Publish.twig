@@ -20,13 +20,13 @@
     <div class="errors">
         <p>{{ error }}</p>
     </div>
-    <form class="annonce-form red" action="{{ route("submitOffer") }}" method="POST">
+    <form class="annonce-form red" action="{{ route("submitOffer") }}" method="POST" enctype="multipart/form-data">
         {% else %}
-        <form class="annonce-form" action="{{ route("submitOffer") }}" method="POST">
+        <form class="annonce-form" action="{{ route("submitOffer") }}" method="POST" enctype="multipart/form-data">
             {% endif %}
             <div class="form-group">
                 <label for="photos">Photo</label>
-                <input type="file" name="photo" id="photo" multiple>
+                <input type="file" name="photo" id="photo">
             </div>
             <div class="form-group">
                 <label for="checkboxType">Quel type d'annonce ?</label>
