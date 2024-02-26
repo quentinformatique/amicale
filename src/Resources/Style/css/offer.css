@@ -78,6 +78,8 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px; }
+    .offer .first-row .info-container h2 {
+      text-align: left; }
     .offer .first-row .info-container .contact-section {
       margin-top: 20px;
       display: flex; }
@@ -99,7 +101,7 @@ a {
 @media screen and (max-width: 1400px) {
   .offer {
     width: 90vw;
-    margin: 10px 0px; }
+    margin: 10px 0; }
     .offer .image-container img {
       width: 50vw !important; } }
 
