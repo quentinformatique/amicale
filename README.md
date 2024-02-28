@@ -22,7 +22,7 @@ npm install
 #### Ensuite, vous pouvez compiler les fichiers SASS en utilisant la commande suivante :
 
 ```bash
-npx node-sass --watch src/Resources/Style/Sass/ -o src/Resources/Style/css/
+sass src/Resources/Style/Sass/:src/Resources/Style/css/ --watch  
 ```
 ### Contribuer
 
