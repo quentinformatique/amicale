@@ -96,7 +96,8 @@ a {
   margin-bottom: 20px;
 }
 .offer .first-row .info-container {
-  width: 100%;
+  flex: 1;
+  word-break: break-all;
 }
 .offer .first-row .info-container h2 {
   text-align: left;
@@ -116,9 +117,10 @@ a {
 }
 .offer .first-row .image-container {
   aspect-ratio: 16/9;
-  width: 75%;
+  width: 30vw;
   border: 1px solid #cdcdcd;
   margin: 10px 30px 10px 10px;
+  flex: none;
 }
 
 @media screen and (max-width: 1400px) {
@@ -126,8 +128,9 @@ a {
     width: 90vw;
     margin: 10px 0;
   }
-  .offer .image-container img {
-    width: 50vw !important;
+  .offer .image-container {
+    width: 40vw !important;
+    padding: 10px !important;
   }
 }
 @media screen and (max-width: 900px) {
@@ -148,10 +151,8 @@ a {
     color: #007bff;
   }
   .first-row .image-container {
-    padding-right: 0;
-  }
-  .first-row .image-container img {
     width: 80vw !important;
+    padding: 10px !important;
   }
 }
 

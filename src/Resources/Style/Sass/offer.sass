@@ -15,7 +15,8 @@
     margin-bottom: 20px
 
     .info-container
-      width: 100%
+      flex: 1
+      word-break: break-all
       h2
         text-align: left
       .contact-section
@@ -30,9 +31,10 @@
 
     .image-container
       aspect-ratio: 16/9
-      width: 75%
+      width: 30vw
       border: 1px solid #cdcdcd
       margin: 10px 30px 10px 10px
+      flex: none
 
 
 @media screen and (max-width: 1400px)
@@ -41,8 +43,8 @@
     margin: 10px 0
 
     .image-container
-      img
-        width: 50vw !important
+      width: 40vw !important
+      padding: 10px !important
 @media screen and (max-width: 900px)
     .first-row
       flex-direction: column
@@ -56,6 +58,5 @@
             i
               color: #007bff
       .image-container
-        padding-right: 0
-        img
-          width: 80vw !important
+        width: 80vw !important
+        padding: 10px !important
