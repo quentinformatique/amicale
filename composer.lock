@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "belicfr/mvclite-core",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/belicfr/mvclite-core.git",
-                "reference": "31ffb2939adaf9011de39725157f86fee6a0315c"
+                "reference": "b7385eb62bb40a6d2f719f92b911989dc4f187cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/belicfr/mvclite-core/zipball/31ffb2939adaf9011de39725157f86fee6a0315c",
-                "reference": "31ffb2939adaf9011de39725157f86fee6a0315c",
+                "url": "https://api.github.com/repos/belicfr/mvclite-core/zipball/b7385eb62bb40a6d2f719f92b911989dc4f187cb",
+                "reference": "b7385eb62bb40a6d2f719f92b911989dc4f187cb",
                 "shasum": ""
             },
             "require": {
@@ -44,9 +44,9 @@
             "description": "MVCLite core part",
             "support": {
                 "issues": "https://github.com/belicfr/mvclite-core/issues",
-                "source": "https://github.com/belicfr/mvclite-core/tree/1.1.2"
+                "source": "https://github.com/belicfr/mvclite-core/tree/1.1.3"
             },
-            "time": "2024-02-26T20:54:24+00:00"
+            "time": "2024-02-27T17:15:47+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -448,16 +448,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v7.0.3",
+            "version": "v7.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "524aac4a280b90a4420d8d6a040718d0586505ac"
+                "reference": "f5832521b998b0bec40bee688ad5de98d4cf111b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/524aac4a280b90a4420d8d6a040718d0586505ac",
-                "reference": "524aac4a280b90a4420d8d6a040718d0586505ac",
+                "url": "https://api.github.com/repos/symfony/string/zipball/f5832521b998b0bec40bee688ad5de98d4cf111b",
+                "reference": "f5832521b998b0bec40bee688ad5de98d4cf111b",
                 "shasum": ""
             },
             "require": {
@@ -514,7 +514,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v7.0.3"
+                "source": "https://github.com/symfony/string/tree/v7.0.4"
             },
             "funding": [
                 {
@@ -530,7 +530,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-29T15:41:16+00:00"
+            "time": "2024-02-01T13:17:36+00:00"
         },
         {
             "name": "twig/twig",
