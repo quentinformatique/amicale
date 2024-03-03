@@ -4,7 +4,7 @@
     </div>
     <div class="info-container">
       <div class="title">
-        <h2>{{ offer.title }}</h2>
+        <h2>{{ offer.title|raw }}</h2>
       </div>
       <div class="row">
         <div class="price">
@@ -16,7 +16,7 @@
       </div>
       <div class="description">
         <p>
-          {{ offer.description }}
+          {{ offer.description|raw }}
         </p>
       </div>
       <div class="contact-section">
