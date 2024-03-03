@@ -1,0 +1,31 @@
+@import "main.sass"
+
+.submission-success
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  h1
+    font-size: 2.5rem
+    margin-bottom: 1rem
+
+  p
+    font-size: 1.5rem
+    margin-bottom: 1rem
+
+.retour
+  margin-top: 2rem
+  font-size: 25px
+  padding: 20px 30px
+  border-radius: 9px
+  transition: all 0.3s
+  border: 1px solid $color-blue
+  background: white
+
+  &:hover
+    box-shadow: rgba(0, 0, 0, .4) 0 0 5px
+    background: $color-blue
+    color: white
+    cursor: pointer
+    transform: scale(1.05)
