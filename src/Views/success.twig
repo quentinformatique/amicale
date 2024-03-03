@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Annonce soumise</title>
-  {{ resource('Style/css/main.css') }}
-  {{ resource('Style/css/footer.css') }}
-  {{ resource('Style/css/navbar.css') }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annonce soumise</title>
+    {{ resource('Style/css/main.css') }}
+    {{ resource('Style/css/footer.css') }}
+    {{ resource('Style/css/navbar.css') }}
     {{ resource('Style/css/offer.css') }}
-  {{ resource('js/navbarToIndex.js', importMethod = 'defer') }}
-  <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
+    {{ resource('Style/css/success.css') }}
+    {{ resource('js/navbarToIndex.js', importMethod = 'defer') }}
+    <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 {% include "Components/navbar.twig" %}
 
 <div class="container">
-  <div class="submission-success">
-    <h1>Votre annonce a été soumise avec succès !</h1>
-    <p>Merci d'avoir soumis votre annonce. Elle est actuellement en attente de validation par notre équipe.</p>
-    <p>Voici un prévisualisation de votre annonce :</p>
-    {% include "Components/offer.twig" with {'offer' : offer} %}
-    <a href="{{ route("index") }}" class="btn btn-primary">Retour à l'accueil</a>
-  </div>
+    <div class="submission-success">
+        <h1>Votre annonce a été soumise avec succès !</h1>
+        <p>Merci d'avoir soumis votre annonce. Elle est actuellement en attente de validation par notre équipe.</p>
+        <p>Voici un prévisualisation de votre annonce :</p>
+        {% include "Components/offer.twig" with {'offer' : offer} %}
+    </div>
+    <div class="retour">
+        <a href="{{ route("index") }}" class="btn btn-primary">Retour à l'accueil</a>
+    </div>
 </div>
 
 {% include "Components/footer.twig" %}
