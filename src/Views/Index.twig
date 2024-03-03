@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
 
-  {{ resource('Style/css/main.css') }}
-  {{ resource('Style/css/footer.css') }}
-  {{ resource('Style/css/offer.css') }}
-  {{ resource('Style/css/navbar.css') }}
-  {{ resource('js/navbarToIndex.js', importMethod = 'defer') }}
+    {{ resource('Style/css/main.css') }}
+    {{ resource('Style/css/footer.css') }}
+    {{ resource('Style/css/offer.css') }}
+    {{ resource('Style/css/navbar.css') }}
+    {{ resource('js/navbarToIndex.js', importMethod = 'defer') }}
+    {{ resource('js/responsiveFooter.js', importMethod = 'defer') }}
 
-  <!-- cdn fontawesome -->
-  <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
+    <!-- cdn fontawesome -->
+    <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
 <body>
 
 {% include "Components/Navbar.twig" %}
 
 <div class="container">
-  <h1>Quel type d'annonces cherchez vous :</h1>
-  <div class="options">
-    <a href="{{ route("sell") }}" class="option">Vente</a>
-    <a href="{{ route("barter") }}" class="option">Troc</a>
-    <a href="{{ route("location") }}" class="option">Location</a>
-  </div>
-  <div class="last-offers">
-    <h2>Dernières annonces</h2>
-    <div class="offers">
-      {% for offer in offers %}
-        {% include "Components/offer.twig" with {'offer' : offer} %}
-      {% endfor %}
+    <h1>Quel type d'annonces cherchez vous :</h1>
+    <div class="options">
+        <a href="{{ route("sell") }}" class="option">Vente</a>
+        <a href="{{ route("barter") }}" class="option">Troc</a>
+        <a href="{{ route("location") }}" class="option">Location</a>
     </div>
-  </div>
+    <div class="last-offers">
+        <h2>Dernières annonces</h2>
+        <div class="offers">
+            {% for offer in offers %}
+                {% include "Components/offer.twig" with {'offer' : offer} %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% include "Components/footer.twig" %}
 </body>
