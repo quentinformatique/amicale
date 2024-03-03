@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vente</title>
-  {{ resource('Style/css/main.css') }}
-  {{ resource('Style/css/footer.css') }}
-  {{ resource('Style/css/offer.css') }}
-  {{ resource('Style/css/navbar.css') }}
-  {{ resource('Style/css/offerPages.css') }}
-  {{ resource('js/filterOffers.js', importMethod = 'defer') }}
-  {{ resource('js/navbarToIndex.js', importMethod = 'defer') }}
-  <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vente</title>
+    {{ resource('Style/css/main.css') }}
+    {{ resource('Style/css/footer.css') }}
+    {{ resource('Style/css/offer.css') }}
+    {{ resource('Style/css/navbar.css') }}
+    {{ resource('Style/css/offerPages.css') }}
+    {{ resource('js/filterOffers.js', importMethod = 'defer') }}
+    {{ resource('js/navbarToIndex.js', importMethod = 'defer') }}
+    {{ resource('js/responsiveFooter.js', importMethod = 'defer') }}
+    <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 {% include "Components/navbar.twig" %}
 <div class="container">
-  <div class="filters">
-    <div class="right">
-      <label for="filter">Trier par : </label>
-      <select name="filter" id="filter">
-        {% if get('filter') == "price" %}
-          <option value="price" selected>Prix</option>
-          <option value="date">Date</option>
-        {% else %}
-          <option value="price">Prix</option>
-          <option value="date" selected>Date</option>
-        {% endif %}
-      </select>
+    <div class="filters">
+        <div class="right">
+            <label for="filter">Trier par : </label>
+            <select name="filter" id="filter">
+                {% if get('filter') == "price" %}
+                    <option value="price" selected>Prix</option>
+                    <option value="date">Date</option>
+                {% else %}
+                    <option value="price">Prix</option>
+                    <option value="date" selected>Date</option>
+                {% endif %}
+            </select>
+        </div>
     </div>
-  </div>
-  {% for offer in offers %}
-    {% include "Components/offer.twig" with {'offer' : offer} %}
-  {% endfor %}
+    {% for offer in offers %}
+        {% include "Components/offer.twig" with {'offer' : offer} %}
+    {% endfor %}
 </div>
 {% include "Components/footer.twig" %}
 </body>
