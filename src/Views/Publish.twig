@@ -8,6 +8,7 @@
     {{ resource('Style/css/footer.css') }}
     {{ resource('Style/css/form.css') }}
     {{ resource('Style/css/navbar.css') }}
+
     {{ resource('js/navbarToIndex.js', importMethod = 'defer') }}
     <script src="https://kit.fontawesome.com/1d87cf05c5.js" crossorigin="anonymous"></script>
 </head>
@@ -16,14 +17,17 @@
 {% include "Components/navbar.twig" %}
 
 <div class="container">
-    {% if error is defined %}
-    <div class="errors">
-        <p>{{ error }}</p>
-    </div>
-    <form class="annonce-form red" action="{{ route("submitOffer") }}" method="POST" enctype="multipart/form-data">
-        {% else %}
+    {% if request().getValidator().getErrors() is not empty %}
+        {% set errors = request().getValidator().getErrors() %}
+        <div class="errors">
+            {% for error in errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        <form class="annonce-form red" action="{{ route("submitOffer") }}" method="POST" enctype="multipart/form-data">
+    {% else %}
         <form class="annonce-form" action="{{ route("submitOffer") }}" method="POST" enctype="multipart/form-data">
-            {% endif %}
+    {% endif %}
             <div class="form-group">
                 <label for="photos">Photo</label>
                 <input type="file" name="photo" id="photo">
