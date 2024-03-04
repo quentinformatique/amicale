@@ -13,7 +13,7 @@ class BarterController extends Controller
     public function render(): void
     {
         $sortOrder = $_GET['filter'] ?? 'date'; // Get the sort order from the request
-        View::render("Barter", [
+        View::render("barter", [
             "offers" => $this->getVerifiedBarterOffers($sortOrder)
         ]);
     }
