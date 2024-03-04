@@ -18,7 +18,7 @@ class PublishController extends Controller
 
     public function render(): void
     {
-        View::render("Publish");
+        View::render("publish");
     }
 
     public function createOffer(Request $request): void
@@ -65,7 +65,7 @@ class PublishController extends Controller
         $offer = Offer::newOffer($type, $title, $price, $description, $agentCode, $phone, $email, $photoPath);
         Storage::createImage($photos, "Medias/databaseImages");
 
-        // Redirect user to success page
+        // Redirect user to success page with offer data
         Delivery::get()
             ->add("offer", $offer)
             ->save();
