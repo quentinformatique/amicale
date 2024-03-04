@@ -11,7 +11,7 @@ class LocationController extends Controller
     public function render(): void
     {
         $sortOrder = $_GET['filter'] ?? 'date'; // Get the sort order from the request
-        View::render("Sell", [
+        View::render("location", [
             "offers" => $this->getVerifiedLocationsOffers($sortOrder)
         ]);
     }
