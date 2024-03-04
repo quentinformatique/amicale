@@ -18,7 +18,7 @@ class PublishController extends Controller
 
     public function render(): void
     {
-        View::render("publish");
+        View::render("Publish");
     }
 
     public function createOffer(Request $request): void

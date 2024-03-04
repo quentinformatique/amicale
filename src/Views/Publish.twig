@@ -24,9 +24,9 @@
                 <p>{{ error }}</p>
             {% endfor %}
         </div>
-        <form class="annonce-form red" action="{{ route("submit-offer") }}" method="POST" enctype="multipart/form-data">
+        <form class="annonce-form red" action="{{ route("post.publish") }}" method="POST" enctype="multipart/form-data">
     {% else %}
-        <form class="annonce-form" action="{{ route("submit-offer") }}" method="POST" enctype="multipart/form-data">
+        <form class="annonce-form" action="{{ route("post.publish") }}" method="POST" enctype="multipart/form-data">
     {% endif %}
             <div class="form-group">
                 <label for="photos">Photo</label>
