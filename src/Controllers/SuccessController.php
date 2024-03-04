@@ -16,7 +16,7 @@ class SuccessController extends Controller
     
     public function render(): void
     {
-        View::render("Success", [
+        View::render("success", [
             "offer" => Delivery::get()->getProps()["offer"],
         ]);
     }
