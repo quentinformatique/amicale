@@ -45,7 +45,7 @@ class PublishController extends Controller
         }
 
         if ($validator->hasFailed()) {
-            Redirect::to('publish')
+            Redirect::to('Publish')
                 ->withValidator($validator)
                 ->redirect();
         }
